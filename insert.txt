@@ -1,0 +1,63 @@
+USE KP_DB/DW;
+
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (01,74,1);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (02,74,2);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (03,85,3);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (04,75,4);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (05,80,5);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (06,52,6);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (07,110,7);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (08,90,8);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (09,55,9);
+INSERT [dbo].[DimPrice] ([Product_id],[Product_Price],[Product_Quantity]) VALUES (10,75,10);
+
+
+
+USE KP_DW/DB;
+
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210221, 2021, 21, 02);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210321, 2021, 21, 03);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210421, 2021, 21, 04);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210521, 2021, 21, 05);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210621, 2021, 21, 06);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210721, 2021, 21, 07);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210821, 2021, 21, 08);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20210921, 2021, 21, 09);
+INSERT [dbo].[DimTime_Period]  ([Date_ID],[Year],[Day],[Month]) VALUES (20211021, 2021, 21, 10);
+
+USE KP_DB/DW;
+
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (01,'BBB',20000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (02,'Sublime_Expert',25000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (03,'Credoz',28000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (04,'Quaza',30000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (05,'Baju_Sarcastik',40000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (06,'Baju_Cotton',50000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (07,'Baju_Motor',60000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (08,'Arrow_Division',70000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (09,'Jawination',80000);
+INSERT [dbo].[DimClothing_Brand] ([Brand_Code],[Brand_Name],[Brand_Value]) VALUES (10,'Songket_Style',80000);
+
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (001,587.99,20210121);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (002,889,20210221);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (003,615,20210321);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (004,0,20210421);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (005,196,20210521);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (006,572,20210621);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (007,0,20210721);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (008,0,20210821);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (009,0,20210921);
+INSERT [dbo].[DimAdvertise] ([Advertise_id],[Advertise_Spending],[Advertise_Date]) VALUES (010,0,20211021);
+
+
+
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (101,01,1001);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (102,02,1002);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (103,03,1003);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (104,04,1004);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (105,05,1005);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (106,06,1006);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (107,07,1007);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (108,08,1008);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (109,09,1009);
+INSERT [dbo].[DimClothing_Category] ([Production_Code],[Cloth_Code],[Batch_NO]) VALUES (110,10,1010);

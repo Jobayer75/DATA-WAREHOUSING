@@ -1,0 +1,166 @@
+DROP TABLE IF EXISTS 
+		Fact_Brand,
+		Fact_Advertise,
+		DimPrice,
+		DimClothing_Brand,
+		DimTime_Period,
+		DimAdvertise,
+		DimClothing_Category
+
+		GO
+
+
+CREATE TABLE dbo.DimPrice ( 
+[Product_id] int NOT NULL,
+[Product_Price] int NOT NULL,
+[Product_Quantity] int NOT NULL,
+
+CONSTRAINT [PK_DimPrice] PRIMARY KEY ( [Product_id] ));
+
+
+
+CREATE TABLE dbo.DimClothing_Brand ( 
+[Brand_Code] varchar (50) NOT NULL, 
+[Brand_Name] varchar (50) NOT NULL,
+[Brand_Value] int NOT NULL,  
+
+CONSTRAINT [PK_DimClothing_Brand] PRIMARY KEY ( [Brand_Code] ));
+
+
+CREATE TABLE dbo.DimClothing_Category ( 
+[Production_Code] int NOT NULL, 
+[Cloth_Code]  varchar (50) NOT NULL,
+[Batch_NO] int NOT NULL,  
+
+CONSTRAINT [PK_DimClothing_Category] PRIMARY KEY ( [Production_Code] ));
+
+
+
+CREATE TABLE dbo.DimTime_Period ( 
+[Date_ID] varchar(50) NOT NULL, 
+[Year] int NOT NULL,
+[Day] int NOT NULL,  
+[Month] int NOT NULL,
+
+CONSTRAINT [PK_DimTime_Period] PRIMARY KEY ( [Date_ID] ));
+
+
+CREATE TABLE Fact_Brand ( 
+[Product_id] int NOT NULL,
+[Brand_Code] varchar (50) NOT NULL, 
+[Production_Code] int NOT NULL,
+[Date_ID] varchar(50) NOT NULL, 
+
+
+CONSTRAINT [PK_Fact_Brand] PRIMARY KEY NONCLUSTERED ([Production_Code],[Product_id], [Brand_Code], [Date_ID]), 
+CONSTRAINT [FK_Fact_Brand_Product_id] FOREIGN KEY (Product_id) REFERENCES dbo.DimPrice (Product_id),
+CONSTRAINT [FK_Fact_Brand_Brand_Code] FOREIGN KEY (Brand_Code) REFERENCES dbo.DimClothing_Brand  (Brand_Code),
+CONSTRAINT [FK_Fact_Brand_Production_Code] FOREIGN KEY (Production_Code) REFERENCES dbo.DimClothing_Category (Production_Code),
+CONSTRAINT [FK_Fact_Brand_Date_ID] FOREIGN KEY (Date_ID) REFERENCES dbo.DimTime_Period (Date_ID),
+);
+GO
+
+CREATE TABLE dbo.DimAdvertise ( 
+[Advertise_id] int NOT NULL,
+[Advertise_Spending] int NOT NULL, 
+[Advertise_Date] varchar(200) NOT NULL,
+
+CONSTRAINT [PK_DimAdvertise] PRIMARY KEY ( [Advertise_id] )
+);
+
+CREATE TABLE Fact_Advertise ( 
+[Advertise_id] int NOT NULL,
+[Brand_Code] varchar (50) NOT NULL, 
+[Date_ID] varchar(50) NOT NULL, 
+
+
+CONSTRAINT [PK_Fact_Advertise] PRIMARY KEY NONCLUSTERED ([Advertise_id],[Brand_Code], [Date_ID]), 
+CONSTRAINT [FK_Fact_Advertise_id] FOREIGN KEY (Advertise_id) REFERENCES dbo.DimAdvertise (Advertise_id),
+CONSTRAINT [FK_Fact_Brand_Brand_Code] FOREIGN KEY (Brand_Code) REFERENCES dbo.DimClothing_Brand  (Brand_Code),
+CONSTRAINT [FK_Fact_Brand_Date_ID] FOREIGN KEY (Date_ID) REFERENCES dbo.DimTime_Period (Date_ID),
+);
+
+GO
+
+
+
+---------------------
+UPDATE
+
+
+DROP TABLE IF EXISTS 
+		Fact_Brand,
+		Fact_Advertisement,
+		DimPrice,
+		DimClothing_Brand,
+		DimTime_Period,
+		DimAdvertise,
+		DimClothing_Category
+
+		GO
+
+CREATE TABLE dbo.DimPrice ( 
+[Product_id] int NOT NULL,
+[Product_Price] int NOT NULL,
+[Product_Quantity] int NOT NULL,
+
+CONSTRAINT [PK_DimPrice] PRIMARY KEY ( [Product_id] ));
+
+
+
+CREATE TABLE dbo.DimClothing_Brand ( 
+[Brand_Code] varchar (50) NOT NULL, 
+[Brand_Name] varchar (50) NOT NULL,
+[Brand_Value] int NOT NULL,  
+
+CONSTRAINT [PK_DimClothing_Brand] PRIMARY KEY ( [Brand_Code] ));
+
+CREATE TABLE dbo.DimClothing_Category ( 
+[Production_Code] int NOT NULL, 
+[Cloth_Code]  varchar (50) NOT NULL,
+[Batch_NO] int NOT NULL,  
+
+CONSTRAINT [PK_DimClothing_Category] PRIMARY KEY ( [Production_Code] ));
+
+CREATE TABLE dbo.DimTime_Period ( 
+[Date_ID] varchar(50) NOT NULL, 
+[Year] int NOT NULL,
+[Day] int NOT NULL,  
+[Month] int NOT NULL,
+
+CONSTRAINT [PK_DimTime_Period] PRIMARY KEY ( [Date_ID] ));
+
+CREATE TABLE Fact_ComBrand ( 
+[Product_id] int NOT NULL,
+[Brand_Code] varchar (50) NOT NULL, 
+[Production_Code] int NOT NULL,
+[Date_ID] varchar(50) NOT NULL, 
+
+CONSTRAINT [PK_Fact_ComBrand] PRIMARY KEY NONCLUSTERED ([Production_Code],[Product_id], [Brand_Code], [Date_ID]), 
+CONSTRAINT [FK_Fact_ComBrand_Product_id] FOREIGN KEY (Product_id) REFERENCES dbo.DimPrice (Product_id),
+CONSTRAINT [FK_Fact_ComBrand_Brand_Code] FOREIGN KEY (Brand_Code) REFERENCES dbo.DimClothing_Brand  (Brand_Code),
+CONSTRAINT [FK_Fact_ComBrand_Production_Code] FOREIGN KEY (Production_Code) REFERENCES dbo.DimClothing_Category (Production_Code),
+CONSTRAINT [FK_Fact_ComBrand_Date_ID] FOREIGN KEY (Date_ID) REFERENCES dbo.DimTime_Period (Date_ID),
+);
+
+CREATE TABLE dbo.DimAdvertise ( 
+[Advertise_id] int NOT NULL,
+[Advertise_Spending] int NOT NULL, 
+[Advertise_Date] varchar(200) NOT NULL,
+
+CONSTRAINT [PK_DimAdvertise] PRIMARY KEY ( [Advertise_id] )
+);
+
+CREATE TABLE Fact_Advertisement ( 
+[Advertise_id] int NOT NULL,
+[Brand_Code] varchar (50) NOT NULL, 
+[Date_ID] varchar(50) NOT NULL, 
+
+
+CONSTRAINT [PK_Fact_Advertisement] PRIMARY KEY NONCLUSTERED ([Advertise_id],[Brand_Code], [Date_ID]), 
+CONSTRAINT [FK_Fact_Advertisement_Advertise_id] FOREIGN KEY (Advertise_id) REFERENCES dbo.DimAdvertise (Advertise_id),
+CONSTRAINT [FK_Fact_Advertisement_Brand_Code] FOREIGN KEY (Brand_Code) REFERENCES dbo.DimClothing_Brand  (Brand_Code),
+CONSTRAINT [FK_Fact_Advertisement_Date_ID] FOREIGN KEY (Date_ID) REFERENCES dbo.DimTime_Period (Date_ID),
+);
+
+GO
